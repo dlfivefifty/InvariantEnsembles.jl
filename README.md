@@ -1,3 +1,5 @@
-# InvariantEnsembles
+InvariantEnsembles.jl
+=====================
 
-[![Build Status](https://travis-ci.org/dlfivefifty/InvariantEnsembles.jl.png)](https://travis-ci.org/dlfivefifty/InvariantEnsembles.jl)
+Sample random unitary invariant ensembles
+
