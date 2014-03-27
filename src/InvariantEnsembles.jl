@@ -248,20 +248,27 @@ function spectradatabase(str,n::Integer,m::Colon)
 end
 
 function spectradatabase(str,n::Integer,m::Integer)
-    if filesize(Pkg.dir("InvariantEnsembles/SpectraDatabase")) == 0 || 
-        filesize(Pkg.dir("InvariantEnsembles/CoefficientDatabase")) == 0 ||         
+    if  filesize(Pkg.dir("InvariantEnsembles/CoefficientDatabase")) == 0 ||         
         filesize(Pkg.dir("InvariantEnsembles/CoefficientDatabaseUnscaled")) == 0    
-        error("No spectra and/or coefficient database found.")
+        error("No coefficient database found.  InvariantEnsembles package corrupted.")
     end
 
 
-  dir = Pkg.dir("InvariantEnsembles/SpectraDatabase/" * str)
-
-  if filesize(dir) == 0
-    warn("Creating folder " * dir)
+    dir = Pkg.dir("InvariantEnsembles/SpectraDatabase")    
+    if filesize(dir) == 0
+        warn("Creating SpectraDatabase folder " * dir)
   
-    mkdir(dir)
-  end
+        mkdir(dir)
+    end
+
+
+    dir = Pkg.dir("InvariantEnsembles/SpectraDatabase/" * str)
+
+    if filesize(dir) == 0
+        warn("Creating folder " * dir)
+  
+        mkdir(dir)
+    end
 
   file = dir * "/" * string(n) * ".csv"
   
